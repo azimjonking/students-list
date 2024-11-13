@@ -1,0 +1,263 @@
+.statistics {
+  padding: 40px 100px;
+  width: 100%;
+  height: 100dvh;
+}
+
+.title {
+  text-align: center;
+}
+
+/* result.css */
+
+.result {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.total {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.search {
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+.search input[type="search"] {
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.search input[type="search"]::placeholder {
+  color: #888;
+}
+
+.search input[type="search"]:focus {
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.2); /* Fokustagi input soyasi */
+}
+
+.table {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 85%;
+  overflow: scroll;
+  position: relative;
+}
+
+.table::-webkit-scrollbar {
+  display: none;
+}
+
+.thead {
+  width: 100%;
+  display: flex;
+  position: sticky;
+  top: 0;
+  background: #000;
+  padding-bottom: 10px;
+}
+
+.tbody {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 150px;
+}
+
+.row {
+  padding: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40px 250px 150px 80px 80px 200px 1fr;
+  gap: 20px;
+  background: #ffffff10;
+  border-radius: calc(12 / 14.4 * 1vw);
+  transition: all 0.3s ease;
+}
+
+.tbody > .row:hover {
+  background: #ffffff30;
+}
+
+.row > td {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row > .subject {
+  justify-content: flex-start;
+}
+
+.row > .fullname,
+.row > .age,
+.row > .score {
+  justify-content: space-between;
+}
+
+.tbody > .row > .age,
+.tbody > .row > .score {
+  padding-left: 10px;
+  justify-content: flex-start;
+}
+
+.row > td > span {
+  font-size: 16px;
+  font-family: "regular";
+  color: #ffffff;
+  text-transform: capitalize;
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  font-size: 18px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Styling the select dropdown */
+.subject > select {
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Customize dropdown arrow */
+.subject > select::-ms-expand {
+  display: none; /* Remove default arrow in IE */
+}
+
+/* Add custom arrow */
+.subject > select {
+  appearance: none; /* Hide default arrow */
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 16 16"><path d="M7.247 11.14l-4.796-5.482c-.566-.647.146-1.659.9-1.659h9.198c.754 0 1.466 1.012.9 1.659l-4.796 5.482c-.345.394-.896.394-1.24 0z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+/* Hover and focus effect */
+.subject > select:hover,
+.subject > select:focus {
+  background-color: #444; /* Slightly lighter on hover/focus */
+}
+
+/* media queries */
+
+@media (max-width: 1400px) {
+  .thead {
+    width: max-content;
+  }
+  .tbody {
+    width: max-content;
+  }
+
+  .row {
+    grid-template-columns: 40px 250px 150px 80px 80px 200px 300px;
+  }
+}
+
+/* General mobile adjustments */
+
+@media (max-width: 768px) {
+  .statistics {
+    padding: 20px; /* Less padding on smaller screens */
+  }
+
+  .title {
+    font-size: 20px; /* Adjust title font size */
+  }
+
+  .result {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px; /* Reduce padding */
+  }
+
+  .total {
+    font-size: 16px; /* Smaller font for totals */
+  }
+
+  .search {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .search input[type="search"] {
+    width: 100%; /* Full-width input on smaller screens */
+    padding: 8px 10px; /* Reduce padding */
+  }
+
+  .thead,
+  .row {
+    padding: 5px; /* Smaller padding */
+  }
+
+  /* Adjust dropdown width */
+  .subject > select {
+    font-size: 12px; /* Smaller font for dropdown */
+    padding: 8px; /* Less padding */
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .title {
+    font-size: 18px; /* Further reduce font size */
+  }
+
+  .result {
+    padding: 8px; /* Reduce padding */
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .total {
+    font-size: 14px;
+  }
+
+  .search input[type="search"] {
+    font-size: 14px;
+  }
+
+  .row > td > span {
+    font-size: 14px; /* Adjust font size */
+  }
+
+  /* Select dropdown styling */
+  .subject > select {
+    font-size: 12px;
+    padding: 6px; /* Smaller padding */
+    background-position: right 8px center; /* Adjust arrow position */
+  }
+}
