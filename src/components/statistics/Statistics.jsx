@@ -10,6 +10,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../../redux/slices/users/usersSlice";
 import Loading from "../loading/Loading";
+import Error from "../error/Error";
 
 const Statistics = () => {
   const [sortByName, setSortByName] = useState(false);
@@ -38,11 +39,11 @@ const Statistics = () => {
     setSortByScore(false);
   };
 
-  const sortByScoreFunction = () => {
-    setSortByName(false);
-    setSortByAge(false);
-    setSortByScore(!sortByScore);
-  };
+  // const sortByScoreFunction = () => {
+  //   setSortByName(false);
+  //   setSortByAge(false);
+  //   setSortByScore(!sortByScore);
+  // };
 
   const students = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
@@ -51,6 +52,7 @@ const Statistics = () => {
   return (
     <div className={styles.statistics}>
       {status == "loading" && <Loading />}
+      {status == "failed" && <Error />}
       {status == "succeeded" && (
         <>
           <h1 className={styles.title}>Students' List</h1>
@@ -85,13 +87,13 @@ const Statistics = () => {
                     {sortByAge && <FaSortNumericDownAlt />}
                   </button>
                 </td>
-                <td className={styles.score}>
+                {/* <td className={styles.score}>
                   <span>Score</span>
                   <button className={styles.sort} onClick={sortByScoreFunction}>
                     {!sortByScore && <FaSortNumericDown />}
                     {sortByScore && <FaSortNumericDownAlt />}
                   </button>
-                </td>
+                </td> */}
 
                 <td className={styles.subject}>
                   <select name="subject" id="subject">

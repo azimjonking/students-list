@@ -14,9 +14,9 @@ const User = ({ student, i }) => {
       <td className={styles.age}>
         <span>17</span>
       </td>
-      <td className={styles.score}>
+      {/* <td className={styles.score}>
         <span>15</span>
-      </td>
+      </td> */}
       <td className={styles.subject}>
         <span>Kompyuter savodxonligi</span>
       </td>
